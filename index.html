@@ -843,6 +843,9 @@ function route(){
   if(h.startsWith("#/blog/")){document.body.classList.remove("cat-mode","mem-mode","team-mode","terms-mode");document.body.classList.add("blog-mode");document.title="The Encore Effect | Costume Exchange Blog";window.scrollTo(0,0);} else if(h.startsWith("#/terms")){document.body.classList.remove("cat-mode","mem-mode","team-mode","blog-mode");document.body.classList.add("terms-mode");document.title="Terms & Conditions | Costume Exchange";window.scrollTo(0,0);} else if(m) showCat(m[1]); else if(mm) showMem(mm[1]); else if(tm) showTeam(tm[1]); else showHome(h.slice(1));
 }
 window.addEventListener("hashchange",route); route();
+// Links to separate pages (#/...) and other websites open in a new tab. Section links on the home page stay in the same tab.
+function newTabLinks(root=document){root.querySelectorAll('a[href^="#/"],a[href^="http"]').forEach(l=>{l.target="_blank";l.rel="noopener"});}
+newTabLinks();new MutationObserver(ms=>ms.forEach(m=>m.addedNodes.forEach(n=>{if(n.nodeType===1){if(n.matches&&n.matches('a'))newTabLinks(n.parentNode||document);else newTabLinks(n);}}))).observe(document.body,{childList:true,subtree:true});
 
 // Mobile menu
 const nav=$("#nav"),mb=$("#menuBtn");
