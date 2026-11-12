@@ -86,7 +86,7 @@ section{padding:84px 0}
 .hero .lead{margin:14px 0 28px}
 .trust{display:flex;flex-wrap:wrap;gap:8px 20px;margin:26px 0 0;padding:0;list-style:none;color:var(--muted);font-size:14px;font-weight:600}
 .trust li::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--gold);margin-right:8px;vertical-align:middle}
-.skelly{margin:0}.skelly img{width:100%;height:auto;border-radius:20px;box-shadow:var(--shadow)}
+.skelly{margin:0;justify-self:center;width:100%;max-width:380px}.skelly img{width:100%;height:auto;border-radius:20px;box-shadow:var(--shadow)}
 .collage{margin-bottom:20px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto auto;gap:12px;position:relative}
 .collage img{width:100%;height:100%;object-fit:cover;border-radius:14px;box-shadow:var(--shadow);aspect-ratio:1200/520}
 .collage .big{grid-column:1 / -1}
@@ -767,7 +767,8 @@ const CATS=[
  {slug:"musical-theatre",name:"Musical Theatre",img:"CE_musical_theatre",blurb:"Costumes with character for musicals, theatre companies and showcases."},
  {slug:"school-production",name:"School Production",img:"CE_school_production",blurb:"Big ideas for your next school stage, from leads to the whole chorus."},
  {slug:"drag",name:"Drag",img:"CE_drag",blurb:"Sequins, feathers and full-glamour looks ready for their next spotlight."},
- {slug:"book-week",name:"Book Week",img:"CE_book_week",blurb:"A new chapter for a great costume. Find Book Week favourites without buying new."}
+ {slug:"book-week",name:"Book Week",img:"CE_book_week",blurb:"A new chapter for a great costume. Find Book Week favourites without buying new."},
+ {slug:"all",name:"All Categories",title:"All costumes",img:"CE_all",thumbs:["CE_ballet","CE_calisthenics","CE_ballroom","CE_book_week"],alt:"All categories: search every performance costume on Costume Exchange",blurb:"Search every costume on Costume Exchange in one place, from ballet and calisthenics to musical theatre and Book Week."}
 ];
 const SAMPLES=[
  ["Midnight Encore","Child 10","Pre-loved","For sale","$180","Individual"],
@@ -777,7 +778,7 @@ const SAMPLES=[
 ];
 const $=s=>document.querySelector(s);
 // Category tiles
-$("#cats").innerHTML=CATS.map(c=>`<a class="cat" href="#/costumes/${c.slug}"><img src="img/${c.img}.jpg" alt="${c.name} costumes: browse second-hand ${c.name.toLowerCase()} costumes" loading="lazy"><span class="go">View listings →</span></a>`).join("");
+$("#cats").innerHTML=CATS.map(c=>`<a class="cat" href="#/costumes/${c.slug}"><img src="img/${c.img}.jpg" alt="${c.alt||c.name+" costumes: browse second-hand "+c.name.toLowerCase()+" costumes"}" loading="lazy"><span class="go">View listings →</span></a>`).join("");
 
 const MEMS=[
  {slug:"soloist",name:"The Soloist",who:"Individual performers of any age or style who want to buy, sell or hire costumes for their own performances.",price:"Free",note:"No monthly fee",list:["Up to 10 active listings"],feature:true},
@@ -819,12 +820,12 @@ function showCat(slug){
   document.body.classList.remove("mem-mode","team-mode","terms-mode","blog-mode");
   const c=CATS.find(x=>x.slug===slug); if(!c){showHome();return}
   document.body.classList.add("cat-mode");
-  document.title=`${c.name} Costumes | Costume Exchange`;
+  document.title=c.slug==="all"?"All Costumes | Costume Exchange":`${c.name} Costumes | Costume Exchange`;
   $("#crumbCat").textContent=c.name;
-  $("#catTitle").textContent=`${c.name} costumes`;
+  $("#catTitle").textContent=c.title||`${c.name} costumes`;
   $("#catBlurb").textContent=c.blurb+" These sample listings show how the marketplace will look.";
-  $("#catHeroImg").src=`img/${c.img}.jpg`; $("#catHeroImg").alt=`${c.name} costumes`;
-  $("#listings").innerHTML=SAMPLES.map((s,i)=>`<article class="listing"><div class="ph"><img src="img/t${i}_${c.img}.jpg" alt="Sample ${c.name.toLowerCase()} costume listing"><span class="chip gold">${s[5]}</span></div><div class="in"><h3>${s[0]}</h3><div class="meta">${s[1]} · ${s[2]} · ${s[3]}</div><div class="pr">${s[4]}</div><button class="btn ghost sm" type="button" data-soon>View Sample Details</button></div></article>`).join("");
+  $("#catHeroImg").src=`img/${c.img}.jpg`; $("#catHeroImg").alt=c.title||`${c.name} costumes`;
+  $("#listings").innerHTML=SAMPLES.map((s,i)=>`<article class="listing"><div class="ph"><img src="img/t${i}_${c.thumbs?c.thumbs[i]:c.img}.jpg" alt="Sample ${c.slug==="all"?"":c.name.toLowerCase()+" "}costume listing"><span class="chip gold">${s[5]}</span></div><div class="in"><h3>${s[0]}</h3><div class="meta">${s[1]} · ${s[2]} · ${s[3]}</div><div class="pr">${s[4]}</div><button class="btn ghost sm" type="button" data-soon>View Sample Details</button></div></article>`).join("");
   $("#otherCats").innerHTML=CATS.filter(x=>x.slug!==slug).map(x=>`<a href="#/costumes/${x.slug}">${x.name}</a>`).join("");
   window.scrollTo(0,0);
 }
