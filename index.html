@@ -130,6 +130,27 @@ a.tier.feature:hover{border-color:var(--gold)}
 .tier .go{margin-top:auto;padding-top:10px;font-size:14px;font-weight:700;color:var(--gold-deep)}
 .tier .who{min-height:0;line-height:1.5}
 /* Membership page */
+#blogView{display:none;padding:36px 0 84px}
+body.blog-mode #home-view{display:none}
+body.blog-mode #blogView{display:block}
+.blog{max-width:780px}
+.blog-hero{width:100%;height:clamp(200px,30vw,330px);object-fit:cover;border-radius:var(--radius);box-shadow:var(--shadow)}
+.blog-meta{margin-top:14px;font-size:14px;color:var(--muted);font-weight:600}
+.blog-body{margin-top:18px}
+.blog-body p,.blog-body li{font-size:17px;line-height:1.75;color:#55524B}
+.blog-body p{margin:16px 0 0}
+.blog-body h2{margin-top:38px;font-size:clamp(21px,2.4vw,26px);color:var(--charcoal)}
+.blog-body ul{margin:14px 0 0;padding-left:22px;display:grid;gap:8px}
+.blog-body strong{color:var(--charcoal)}
+.blog-body a{color:var(--gold-deep);font-weight:700}
+.blog-cta{margin-top:40px;background:var(--sand);border-radius:var(--radius);padding:26px;display:grid;grid-template-columns:auto 1fr auto;gap:20px;align-items:center}
+.blog-cta img{width:56px}
+.blog-cta p{margin:6px 0 0;color:#5B5547}
+.blog-src{margin-top:30px;font-size:13px;color:var(--muted)}
+.blog-src h4{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.blog-src ul{padding-left:18px;margin:8px 0 0}
+.blog-src a{color:var(--gold-deep);word-break:break-all}
+@media (max-width:760px){.blog-cta{grid-template-columns:1fr}.blog-body p,.blog-body li{font-size:16px}}
 #termsView{display:none;padding:36px 0 84px}
 body.terms-mode #home-view{display:none}
 body.terms-mode #termsView{display:block}
@@ -467,7 +488,7 @@ body.cat-mode #catView{display:block}
         <div class="eyebrow" style="color:var(--gold-soft)">The Encore Effect</div>
         <h3 style="margin-top:8px">A costume’s story doesn’t have to end after its first performance.</h3>
         <p>A new performer. A new routine. Another moment in the spotlight. That’s the Encore Effect.</p>
-        <div class="btns" style="margin-top:22px"><a class="btn primary" href="#explore">Find Your Next Showstopper</a></div>
+        <div class="btns" style="margin-top:22px"><a class="btn primary" href="#/blog/the-encore-effect">Read the Blog</a><a class="btn ghost" href="#explore">Find Your Next Showstopper</a></div>
       </div>
     </div>
   </section>
@@ -660,6 +681,56 @@ body.cat-mode #catView{display:block}
   </div>
 </main>
 
+<main id="blogView">
+  <div class="wrap blog">
+    <div class="crumbs"><a href="#home" data-home>Home</a> → <a href="#about" data-home>About</a> → <span>The Encore Effect</span></div>
+    <img class="blog-hero" src="img/costume-rack.jpg" alt="A backstage costume rack filled with sequinned leotards, tutus, gowns and theatre jackets" width="1400" height="933">
+    <div class="eyebrow" style="margin-top:26px">Costume Exchange Blog</div>
+    <h1 style="font-size:clamp(30px,4.6vw,48px);margin-top:8px">The Encore Effect: Why Australia’s Costumes Deserve a Bigger Stage</h1>
+    <div class="rule"></div>
+    <div class="blog-meta">By the Costume Exchange team · 5 minute read</div>
+    <article class="blog-body">
+<p>Somewhere in a garage in Geelong, there’s a plastic tub of sequinned leotards. They were worn for one competition season, packed away with care, and haven’t seen a stage light since. Across town, a parent is scrolling Facebook at 11pm, hunting for exactly that costume in a size 10.</p>
+<p>They will probably never find each other. That’s the problem Costume Exchange was built to solve.</p>
+<h2>Hundreds of Groups. No Way to Search Them.</h2>
+<p>Right now, if you want to buy, sell or hire a performance costume in Australia, you have to post in a closed Facebook group. Then another one. Then another.</p>
+<p>There are hundreds of these groups. Each one is a small corner of the community, built around a single style, club or region. They are run by generous volunteers, and they have kept costumes moving for years. But they were never designed to be a marketplace.</p>
+<p>Here’s what that looks like in real life:</p>
+<ul>
+<li><strong>Your listing only reaches people in that group.</strong> If the right buyer isn’t a member, they will never see it.</li>
+<li><strong>Search is limited.</strong> You can’t easily filter by size, style, colour, price or whether a costume is for sale or hire.</li>
+<li><strong>Posts get buried.</strong> A listing from Tuesday can disappear under fifty new posts by Thursday.</li>
+<li><strong>Services are scattered too.</strong> Dressmakers, alterations specialists, prop makers and music editors are hard to find unless someone tags them in the comments.</li>
+</ul>
+<p>The result? Great costumes sit in storage. Performers pay full price for new ones. And talented creatives miss out on work.</p>
+<h2>One Marketplace for the Whole Performing Arts Community</h2>
+<p>Costume Exchange brings the whole community into one place. Dancers, calisthenics families, gymnasts, skaters, theatre companies, schools and clubs can all share their costumes with a national audience, not just the people who happen to be in the right Facebook group.</p>
+<p>Every costume lives in an owner’s Wardrobe in the Costume Exchange app. Buyers and renters can search and filter listings properly, check photos, sizing and condition, and message the owner directly. When a costume is hired out, any deposit is held through the platform until it comes home safely.</p>
+<p>It’s also a home for the people behind the scenes. The Creative Crew gives costume designers, dressmakers, lighting and set designers and other creative service providers a place to be found by performers right across Australia.</p>
+<h2>Turning Costumes in Storage Into Income</h2>
+<p>Performance costumes are not cheap. Many are hand-made, hand-beaded and built for a single routine. Once the season ends, most of that value sits in a cupboard.</p>
+<p>Costume Exchange helps turn it back into money:</p>
+<ul>
+<li><strong>Performers</strong> can sell or hire out costumes they have outgrown, or that no longer suit their routine.</li>
+<li><strong>Parents</strong> can recover some of what they spent, often just in time for next season’s costumes.</li>
+<li><strong>Clubs and schools</strong> can hire out past team sets and earn much-needed income for fees, travel, equipment and new costumes.</li>
+</ul>
+<p>A team set that has been sitting in a storeroom for three years could be dressing another club’s routine next month. That’s money back into the community, and a costume back on stage.</p>
+<h2>Giving Every Costume More Life</h2>
+<p>There’s a bigger reason this matters too. According to the <a target="_blank" rel="noopener" href="https://ausfashioncouncil.com/wp-content/uploads/2023/06/Roadmap-to-Clothing-Circularity.pdf">Australian Fashion Council</a>, more than 200,000 tonnes of clothing ends up in Australian landfill every year. <a target="_blank" rel="noopener" href="https://www.abc.net.au/news/2023-05-19/fashion-industry-works-to-become-more-sustainable/102364948">ABC News</a>, reporting on the council’s research, says Australians buy an average of 56 new items of clothing each year.</p>
+<p>Costumes are part of that story. They are often made from sequins, synthetic fabrics and trims that don’t break down easily. Every costume that finds a second, third or fourth performer is one less costume made from scratch, and one less costume headed for the tip.</p>
+<p>That’s the circular economy in action: keeping good things in use for as long as possible. In our world, we call it the Encore Effect.</p>
+<h2>The Encore Effect</h2>
+<p>A costume’s story doesn’t have to end after its first performance. A new performer. A new routine. Another moment in the spotlight.</p>
+<p>When costumes move freely across the whole country, everyone wins. Performing becomes more affordable. Families and clubs earn income from what they already own. Creatives find new clients. And less beautiful work ends up in landfill.</p>
+<p>We started Costume Exchange to unite Australia’s performing arts community and give every costume the encore it deserves.</p>
+
+    </article>
+    <div class="blog-cta"><img src="brand/crown-mark.png" alt=""><div><h3>Ready to give your costumes their next standing ovation?</h3><p>Create your Wardrobe in the Costume Exchange app and share your costumes with performers right across Australia.</p></div><a class="btn primary" href="#get-the-app" data-home>Create Your Wardrobe</a></div>
+    <div class="blog-src"><h4>Sources</h4><ul><li>Australian Fashion Council, Roadmap to Clothing Circularity: <a href="https://ausfashioncouncil.com/wp-content/uploads/2023/06/Roadmap-to-Clothing-Circularity.pdf" target="_blank" rel="noopener">https://ausfashioncouncil.com/wp-content/uploads/2023/06/Roadmap-to-Clothing-Circularity.pdf</a></li><li>ABC News, How the Australian fashion industry plans to become more sustainable: <a href="https://www.abc.net.au/news/2023-05-19/fashion-industry-works-to-become-more-sustainable/102364948" target="_blank" rel="noopener">https://www.abc.net.au/news/2023-05-19/fashion-industry-works-to-become-more-sustainable/102364948</a></li></ul></div>
+  </div>
+</main>
+
 <footer>
   <div class="wrap">
     <div class="foot">
@@ -668,7 +739,7 @@ body.cat-mode #catView{display:block}
         <p style="color:var(--muted);margin:10px 0 0">Every costume deserves another standing ovation.</p>
       </div>
       <nav aria-label="Footer">
-        <a href="#explore" data-home>Explore</a><a href="#memberships" data-home>Memberships</a><a href="#about" data-home>About</a><a href="#team" data-home>Our Team</a><a href="#how-it-works" data-home>How It Works</a><a href="#faqs" data-home>FAQs</a><a href="#contact" data-home>Contact</a><a href="#/terms">Terms &amp; Conditions</a>
+        <a href="#explore" data-home>Explore</a><a href="#memberships" data-home>Memberships</a><a href="#about" data-home>About</a><a href="#team" data-home>Our Team</a><a href="#how-it-works" data-home>How It Works</a><a href="#faqs" data-home>FAQs</a><a href="#contact" data-home>Contact</a><a href="#/blog/the-encore-effect">Blog</a><a href="#/terms">Terms &amp; Conditions</a>
       </nav>
     </div>
     <div class="copy">© 2026 Costume Exchange · costumeexchange.com.au · Preview build, sample content only</div>
@@ -724,7 +795,7 @@ const TEAM=[
 ];
 function showTeam(slug){
   const t=TEAM.find(x=>x.slug===slug); if(!t){showHome();return}
-  document.body.classList.remove("cat-mode","mem-mode","terms-mode"); document.body.classList.add("team-mode");
+  document.body.classList.remove("cat-mode","mem-mode","terms-mode","blog-mode"); document.body.classList.add("team-mode");
   document.title=`${t.name}, ${t.tag} | Costume Exchange`;
   const card=document.querySelector(`#team a[href="#/team/${slug}"] p`);
   $("#tmCrumb").textContent=t.name; $("#tmName").textContent=t.name; $("#tmTag").textContent=t.tag; $("#tmRole").textContent=t.role;
@@ -735,7 +806,7 @@ function showTeam(slug){
 }
 function showMem(slug){
   const m=MEMS.find(x=>x.slug===slug); if(!m){showHome();return}
-  document.body.classList.remove("cat-mode","team-mode","terms-mode"); document.body.classList.add("mem-mode");
+  document.body.classList.remove("cat-mode","team-mode","terms-mode","blog-mode"); document.body.classList.add("mem-mode");
   document.title=`${m.name} Membership | Costume Exchange`;
   $("#memCrumb").textContent=m.name; $("#memTitle").textContent=m.name; $("#memWho").textContent=m.who;
   $("#memPrice").innerHTML=m.price; $("#memNote").textContent=m.note;
@@ -745,7 +816,7 @@ function showMem(slug){
   window.scrollTo(0,0);
 }
 function showCat(slug){
-  document.body.classList.remove("mem-mode","team-mode","terms-mode");
+  document.body.classList.remove("mem-mode","team-mode","terms-mode","blog-mode");
   const c=CATS.find(x=>x.slug===slug); if(!c){showHome();return}
   document.body.classList.add("cat-mode");
   document.title=`${c.name} Costumes | Costume Exchange`;
@@ -758,8 +829,8 @@ function showCat(slug){
   window.scrollTo(0,0);
 }
 function showHome(target){
-  const was=["cat-mode","mem-mode","team-mode","terms-mode"].some(c=>document.body.classList.contains(c));
-  document.body.classList.remove("cat-mode","mem-mode","team-mode","terms-mode");
+  const was=["cat-mode","mem-mode","team-mode","terms-mode","blog-mode"].some(c=>document.body.classList.contains(c));
+  document.body.classList.remove("cat-mode","mem-mode","team-mode","terms-mode","blog-mode");
   document.title="Second-Hand Dance Costumes Australia | Costume Exchange";
   if(was&&target){const el=document.getElementById(target); if(el) requestAnimationFrame(()=>el.scrollIntoView());}
 }
@@ -768,7 +839,7 @@ function route(){
   const m=h.match(/^#\/costumes\/([\w-]+)/);
   const mm=h.match(/^#\/memberships\/([\w-]+)/);
   const tm=h.match(/^#\/team\/([\w-]+)/);
-  if(h.startsWith("#/terms")){document.body.classList.remove("cat-mode","mem-mode","team-mode");document.body.classList.add("terms-mode");document.title="Terms & Conditions | Costume Exchange";window.scrollTo(0,0);} else if(m) showCat(m[1]); else if(mm) showMem(mm[1]); else if(tm) showTeam(tm[1]); else showHome(h.slice(1));
+  if(h.startsWith("#/blog/")){document.body.classList.remove("cat-mode","mem-mode","team-mode","terms-mode");document.body.classList.add("blog-mode");document.title="The Encore Effect | Costume Exchange Blog";window.scrollTo(0,0);} else if(h.startsWith("#/terms")){document.body.classList.remove("cat-mode","mem-mode","team-mode","blog-mode");document.body.classList.add("terms-mode");document.title="Terms & Conditions | Costume Exchange";window.scrollTo(0,0);} else if(m) showCat(m[1]); else if(mm) showMem(mm[1]); else if(tm) showTeam(tm[1]); else showHome(h.slice(1));
 }
 window.addEventListener("hashchange",route); route();
 
