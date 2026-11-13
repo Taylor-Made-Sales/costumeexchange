@@ -419,7 +419,6 @@ body.cat-mode #catView{display:block}
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Help great costumes take the stage again</li>
         </ul>
         <a class="btn primary" href="#get-the-app">Create Your Wardrobe</a>
-        <p class="fine">Membership allowances apply. <a href="#/terms" style="color:var(--gold-deep);font-weight:700">Read our Terms &amp; Conditions</a>.</p>
       </div>
       <div class="photo-stack">
         <img src="img/costume-rack.jpg" alt="A backstage costume rack filled with sequinned leotards, tutus, gowns and theatre jackets" width="1400" height="933" loading="lazy">
@@ -539,7 +538,7 @@ body.cat-mode #catView{display:block}
         <details open><summary>Is it free to join Costume Exchange?</summary><p>Yes. The Soloist and The Ensemble Memberships are free for individual performers and families. Platform fees still apply when you buy, sell or hire. Paid Memberships add features for clubs, schools, businesses and creative service providers.</p></details>
         <details><summary>Do I use the website or the app?</summary><p>The marketplace lives in the Costume Exchange app for Apple and Android. This website introduces the community, explains the Memberships and lets you preview costume categories.</p></details>
         <details><summary>Can I buy, sell and hire on the same account?</summary><p>Yes. Every member can browse and buy. Listing for sale, for hire, or both depends on your Membership and the options you choose for each item.</p></details>
-        <details><summary>What are the platform fees?</summary><p>The early-adopter platform fee is 5% for the owner and 5% for the buyer or renter, plus GST on the fee. Rates are scheduled to increase to 10% each side from April 2027.</p></details>
+        <details><summary>What are the platform fees?</summary><p>Costume Exchange is free to join with The Soloist and The Ensemble Memberships. When you buy, sell or hire, it’s all done for a small platform fee, plus GST on the fee. The fee is shown in the app before you confirm.</p></details>
         <details><summary>Can I list or find team costumes?</summary><p>Yes. Each listing shows whether it’s an individual or team costume, plus the number available and sizes.</p></details>
         <details><summary>How does shipping work?</summary><p>Each owner sets their own delivery options. Shipping may be included in the price or quoted separately, and many owners offer local pickup. If anything is unclear, message the owner before you order.</p></details>
         <details><summary>How do hire returns and deposits work?</summary><p>The hire period, return method and any deposit are agreed before the hire is confirmed. If the owner asks for a deposit, it’s taken through the platform with the hire payment and refunded when the costume comes back as agreed.</p></details>
@@ -811,7 +810,7 @@ function showMem(slug){
   document.title=`${m.name} Membership | Costume Exchange`;
   $("#memCrumb").textContent=m.name; $("#memTitle").textContent=m.name; $("#memWho").textContent=m.who;
   $("#memPrice").innerHTML=m.price; $("#memNote").textContent=m.note;
-  $("#memList").innerHTML=[...m.list,"Early-adopter platform fee: 5% each side, plus GST on the fee"].map(x=>`<li>${x}</li>`).join("");
+  $("#memList").innerHTML=[...m.list,"Buy, sell or hire for a small platform fee"].map(x=>`<li>${x}</li>`).join("");
   $("#memHero").classList.toggle("feature",!!m.feature);
   $("#otherMems").innerHTML=MEMS.filter(x=>x.slug!==slug).map(x=>`<a href="#/memberships/${x.slug}">${x.name}</a>`).join("");
   window.scrollTo(0,0);
