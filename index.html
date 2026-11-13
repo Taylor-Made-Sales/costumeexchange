@@ -182,6 +182,38 @@ body.mem-mode #memView{display:block}
 .mem-facts ul{margin:14px 0 0;padding-left:18px;color:#5B5547}
 .mem-copy{margin-top:30px;border:1.5px dashed var(--gold-soft);border-radius:var(--radius);padding:24px 26px;background:#fff;color:var(--grey)}
 .mem-copy h3{color:var(--gold-deep);font-size:16px}
+.mem-detail{margin-top:34px}
+.mem-intro{font-size:clamp(17px,1.6vw,19px);line-height:1.6;color:var(--charcoal);max-width:820px;margin:0 0 22px}
+.md-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.md-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;box-shadow:var(--shadow)}
+.md-card h3{font-size:17px;margin:0 0 12px;color:var(--charcoal)}
+.ticks{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.ticks li{display:flex;gap:10px;align-items:flex-start;color:var(--grey);line-height:1.5}
+.ticks svg{flex:none;margin-top:3px;color:var(--gold-deep);background:var(--sand);border-radius:50%;padding:3px;width:22px;height:22px}
+.soon-note{margin:16px 0 0;background:var(--sand);border-radius:12px;padding:12px 14px;color:var(--grey);font-size:14.5px}
+.soon-note b{display:block;color:var(--gold-deep);margin-bottom:2px}
+.md-card:last-child:nth-child(odd){grid-column:1/-1}
+.md-callout{margin:0 0 18px;display:flex;gap:16px;align-items:flex-start;background:var(--sand);border:1.5px solid var(--gold);border-radius:var(--radius);padding:20px 22px}
+.md-callout img{width:44px;flex:none}
+.md-callout h3{margin:0 0 4px;font-size:17px}
+.md-callout p{margin:0 0 8px;color:var(--grey)}
+.md-callout a{font-weight:700;color:var(--gold-deep);text-decoration:none}
+.mem-guide{margin-top:40px}
+.mem-guide h2{font-size:clamp(22px,2.6vw,28px);margin:0}
+.mem-guide .lead{margin:6px 0 14px}
+.home-guide{margin-top:30px;max-width:860px;margin-left:auto;margin-right:auto}
+.home-guide h3{text-align:center;margin:0 0 14px;font-size:20px}
+.guide{display:grid;gap:8px}
+.g-row{display:flex;justify-content:space-between;align-items:center;gap:16px;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px 18px;text-decoration:none;color:var(--charcoal);transition:border-color .2s,box-shadow .2s}
+.g-row:hover{border-color:var(--gold);box-shadow:var(--shadow)}
+.g-row span{color:var(--grey)}
+.g-row b{color:var(--gold-deep);white-space:nowrap}
+.g-row.cur{border-color:var(--gold);background:#FFFBF0}
+.g-row em{font-style:normal;font-size:12px;font-weight:700;background:var(--gold);color:#fff;border-radius:999px;padding:2px 8px;margin-left:6px}
+.mem-end{margin-top:34px;display:flex;justify-content:space-between;align-items:center;gap:20px;background:linear-gradient(180deg,#FFFDF8,#F7EEDA);border:1px solid var(--line);border-radius:var(--radius);padding:26px 28px}
+.mem-end h3{margin:0 0 4px}
+.mem-end p{margin:0;color:var(--grey)}
+@media (max-width:760px){.md-grid{grid-template-columns:1fr}.g-row{flex-direction:column;align-items:flex-start;gap:4px}.g-row b{white-space:normal}.mem-end{flex-direction:column;align-items:flex-start}}
 @media (max-width:860px){.mem-hero{grid-template-columns:1fr}}
 .fees{margin-top:28px;background:var(--sand);border-radius:var(--radius);padding:24px 26px;display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center}
 .fees img{width:54px}
@@ -425,7 +457,7 @@ label.chk input{width:18px;height:18px;padding:0;margin:2px 0 0;flex:none;accent
       <a href="#contact" data-home>Contact</a>
     </nav>
     <div style="display:flex;gap:10px;align-items:center">
-      <a class="btn primary sm head-cta" href="#get-the-app" data-home>Create Your Wardrobe</a>
+      <a data-wl class="btn primary sm head-cta" href="#get-the-app" data-home>Create Your Wardrobe</a>
       <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
@@ -445,7 +477,7 @@ label.chk input{width:18px;height:18px;padding:0;margin:2px 0 0;flex:none;accent
         <p class="lead">Buy, sell or hire new and pre-loved performance costumes from wardrobes across Australia. From solo spotlights to full-team sparkle, find your next showstopper, or give a much-loved costume its encore.</p>
         <div class="btns">
           <a class="btn primary" href="#explore">Explore the Marketplace</a>
-          <a class="btn ghost" href="#get-the-app">Create Your Wardrobe</a>
+          <a data-wl class="btn ghost" href="#get-the-app">Create Your Wardrobe</a>
         </div>
       </div>
       <figure class="skelly">
@@ -483,7 +515,7 @@ label.chk input{width:18px;height:18px;padding:0;margin:2px 0 0;flex:none;accent
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Make room in your wardrobe</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Help great costumes take the stage again</li>
         </ul>
-        <a class="btn primary" href="#get-the-app">Create Your Wardrobe</a>
+        <a data-wl class="btn primary" href="#get-the-app">Create Your Wardrobe</a>
       </div>
       <div class="photo-stack">
         <img src="img/costume-rack.jpg" alt="A backstage costume rack filled with sequinned leotards, tutus, gowns and theatre jackets" width="1400" height="933" loading="lazy">
@@ -503,14 +535,15 @@ label.chk input{width:18px;height:18px;padding:0;margin:2px 0 0;flex:none;accent
         <p class="lead">Performer, parent, club, school, creative business or service provider, there’s a Membership made for you. Choose one to learn more.</p>
       </div>
       <div class="tiers">
-        <a class="tier feature" href="#/memberships/soloist"><h3>The Soloist</h3><div class="who">Individual performers of any age or style who want to buy, sell or hire costumes for their own performances.</div><span class="go">Learn More →</span></a>
-        <a class="tier" href="#/memberships/ensemble"><h3>The Ensemble</h3><div class="who">Parents and guardians looking after costumes for one or more performers, from first concerts to competition season.</div><span class="go">Learn More →</span></a>
-        <a class="tier" href="#/memberships/creative-crew"><h3>The Creative Crew</h3><div class="who">Costume designers, dressmakers, alterations specialists, prop makers, music editors, lighting and set designers offering their skills to the performance community.</div><span class="go">Learn More →</span></a>
-        <a class="tier" href="#/memberships/producers"><h3>The Producers</h3><div class="who">Clubs, schools, studios and troupes managing a whole wardrobe of costumes, team sets, hires and returns in one place.</div><span class="go">Learn More →</span></a>
-        <a class="tier" href="#/memberships/company"><h3>The Company</h3><div class="who">ABN-registered businesses that sell or hire performance costumes, props and accessories.</div><span class="go">Learn More →</span></a>
+        <a class="tier feature" href="#/memberships/soloist"><h3>The Soloist</h3><div class="who">Individual performers aged 18 and over who buy, sell or hire costumes for their own performances.</div><span class="go">Learn More →</span></a>
+        <a class="tier" href="#/memberships/ensemble"><h3>The Ensemble</h3><div class="who">Parents, guardians and families managing costumes for performers, including children under 18.</div><span class="go">Learn More →</span></a>
+        <a class="tier" href="#/memberships/creative-crew"><h3>The Creative Crew</h3><div class="who">Service providers to the performing arts, such as sewers, costume designers, and lighting and sound technicians.</div><span class="go">Learn More →</span></a>
+        <a class="tier" href="#/memberships/producers"><h3>The Producers</h3><div class="who">Clubs, schools, studios and troupes managing a whole wardrobe, with unlimited listings and team access.</div><span class="go">Learn More →</span></a>
+        <a class="tier" href="#/memberships/company"><h3>The Company</h3><div class="who">Australian businesses that commercially support the performing arts, with a shop profile to sell to performers.</div><span class="go">Learn More →</span></a>
       </div>
+      <div class="mem-guide home-guide"><h3>Which Membership is right for me?</h3><div class="guide" id="homeGuide"></div></div>
       <div class="sub-links">
-        <a class="btn primary" href="#get-the-app">Create Your Wardrobe</a>
+        <a data-wl class="btn primary" href="#get-the-app">Create Your Wardrobe</a>
       </div>
     </div>
   </section>
@@ -531,7 +564,7 @@ label.chk input{width:18px;height:18px;padding:0;margin:2px 0 0;flex:none;accent
         <div class="step"><h3>For Clubs, Schools &amp; Troupes</h3><ol><li>Join The Producers.</li><li>Add your costume collection and team sets.</li><li>Manage private and public listings from one place.</li></ol><a class="step-link" href="#/memberships/producers">About The Producers →</a></div>
         <div class="step"><h3>For Businesses</h3><ol><li>Join The Company.</li><li>Set up your business profile and Wardrobe.</li><li>List your costumes for sale or hire and connect with performers, clubs and schools.</li></ol><a class="step-link" href="#/memberships/company">About The Company →</a></div>
       </div>
-      <div class="more-row"><a class="btn primary" href="#get-the-app">Create Your Free Account</a></div>
+      <div class="more-row"><a data-wl class="btn primary" href="#get-the-app">Create Your Free Account</a></div>
     </div>
   </section>
 
@@ -693,11 +726,13 @@ label.chk input{width:18px;height:18px;padding:0;margin:2px 0 0;flex:none;accent
         <div class="eyebrow" style="margin-top:10px">Costume Exchange Membership</div>
         <h1 id="memTitle" style="font-size:clamp(30px,4.4vw,46px);margin-top:8px"></h1>
         <p class="lead" id="memWho" style="margin-top:12px"></p>
-        <div class="btns" style="margin-top:22px"><a class="btn primary" href="#get-the-app" data-home id="memCta">Create Your Wardrobe</a><a class="btn ghost" href="#memberships" data-home>Compare Memberships</a></div>
+        <div class="btns" style="margin-top:22px"><button class="btn primary" type="button" data-wl id="memCta">Create Your Wardrobe</button><a class="btn ghost" href="#memberships" data-home>Compare Memberships</a></div>
       </div>
       <div class="mem-facts"><div class="price" id="memPrice"></div><div class="note" id="memNote" style="color:var(--muted);font-size:14px;margin-top:4px"></div><ul id="memList"></ul></div>
     </div>
-    <div class="mem-copy"><h3>More about this Membership</h3><p style="margin:8px 0 0">A detailed description of this Membership is coming soon.</p><div class="btns" style="margin-top:16px"><a class="btn primary sm" href="#get-the-app" data-home>Create Your Wardrobe</a></div></div>
+    <div class="mem-detail" id="memDetail"></div>
+    <div class="mem-guide"><h2>Which Membership is right for me?</h2><p class="lead">Find the line that sounds like you.</p><div class="guide" id="memGuide"></div></div>
+    <div class="mem-end"><div><h3>Ready to join the cast?</h3><p>The Costume Exchange app is coming soon. Register your interest and be front row when the curtain goes up.</p></div><button class="btn primary" type="button" data-wl id="memEndCta">Create Your Wardrobe</button></div>
     <div class="other-cats" id="otherMems"></div>
   </div>
 </main>
@@ -792,7 +827,7 @@ label.chk input{width:18px;height:18px;padding:0;margin:2px 0 0;flex:none;accent
 <p>We started Costume Exchange to unite Australia’s performing arts community and give every costume the encore it deserves.</p>
 
     </article>
-    <div class="blog-cta"><img src="brand/crown-mark.png" alt=""><div><h3>Ready to give your costumes their next standing ovation?</h3><p>Create your Wardrobe in the Costume Exchange app and share your costumes with performers right across Australia.</p></div><a class="btn primary" href="#get-the-app" data-home>Create Your Wardrobe</a></div>
+    <div class="blog-cta"><img src="brand/crown-mark.png" alt=""><div><h3>Ready to give your costumes their next standing ovation?</h3><p>Create your Wardrobe in the Costume Exchange app and share your costumes with performers right across Australia.</p></div><a data-wl class="btn primary" href="#get-the-app" data-home>Create Your Wardrobe</a></div>
     <div class="blog-src"><h4>Sources</h4><ul><li>Australian Fashion Council, Roadmap to Clothing Circularity: <a href="https://ausfashioncouncil.com/wp-content/uploads/2023/06/Roadmap-to-Clothing-Circularity.pdf" target="_blank" rel="noopener">https://ausfashioncouncil.com/wp-content/uploads/2023/06/Roadmap-to-Clothing-Circularity.pdf</a></li><li>ABC News, How the Australian fashion industry plans to become more sustainable: <a href="https://www.abc.net.au/news/2023-05-19/fashion-industry-works-to-become-more-sustainable/102364948" target="_blank" rel="noopener">https://www.abc.net.au/news/2023-05-19/fashion-industry-works-to-become-more-sustainable/102364948</a></li></ul></div>
   </div>
 </main>
@@ -840,6 +875,7 @@ label.chk input{width:18px;height:18px;padding:0;margin:2px 0 0;flex:none;accent
         <label><span>Mobile number <span class="opt">(optional)</span></span><input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="04xx xxx xxx"></label>
         <label>State or territory<select name="state" required><option value="">Select</option><option>VIC</option><option>NSW</option><option>QLD</option><option>SA</option><option>WA</option><option>TAS</option><option>NT</option><option>ACT</option></select></label>
       </div>
+      <label>Membership I’m interested in<select name="mem"><option value="">Not sure yet</option><option>The Soloist</option><option>The Ensemble</option><option>The Creative Crew</option><option>The Producers</option><option>The Company</option></select></label>
       <label>I am a<select name="role" required><option value="">Select</option><option>Performer</option><option>Parent or carer</option><option>Studio, school or club</option><option>Theatre or production company</option><option>Costume maker</option><option>Other</option></select></label>
       <fieldset class="wl-ints"><legend>I’m interested in</legend>
         <label class="chk"><input type="checkbox" name="int" value="Buying costumes">Buying costumes</label>
@@ -892,11 +928,11 @@ const $=s=>document.querySelector(s);
 $("#cats").innerHTML=CATS.map(c=>`<a class="cat" href="#/costumes/${c.slug}"><img src="img/${c.img}.jpg" alt="${c.alt||c.name+" costumes: browse second-hand "+c.name.toLowerCase()+" costumes"}" loading="lazy"><span class="go">View listings →</span></a>`).join("");
 
 const MEMS=[
- {slug:"soloist",name:"The Soloist",who:"Individual performers of any age or style who want to buy, sell or hire costumes for their own performances.",price:"Free",note:"No monthly fee",list:["Up to 10 active listings"],feature:true},
- {slug:"ensemble",name:"The Ensemble",who:"Parents and guardians looking after costumes for one or more performers, from first concerts to competition season.",price:"Free",note:"No monthly fee",list:["Up to 20 active listings"]},
- {slug:"creative-crew",name:"The Creative Crew",who:"Costume designers, dressmakers, alterations specialists, prop makers, music editors, lighting and set designers offering their skills to the performance community.",price:"$25 <small>/ month + GST</small>",note:"or $250 / year + GST",list:[]},
- {slug:"producers",name:"The Producers",who:"Clubs, schools, studios and troupes managing a whole wardrobe of costumes, team sets, hires and returns in one place.",price:"$95 <small>/ month + GST</small>",note:"or $950 / year + GST",list:["30-day free trial"]},
- {slug:"company",name:"The Company",who:"ABN-registered businesses that sell or hire performance costumes, props and accessories.",price:"$125 <small>/ month + GST</small>",note:"or $1,250 / year + GST",list:[]}
+ {slug:"soloist",name:"The Soloist",who:"Individual performers aged 18 and over who buy, sell or hire costumes for their own performances.",price:"Free",note:"No monthly fee",list:["Up to 10 active listings","For performers aged 18 and over"],feature:true},
+ {slug:"ensemble",name:"The Ensemble",who:"Parents, guardians and families managing costumes for performers, including children under 18.",price:"Free",note:"No monthly fee",list:["Up to 20 active listings","Parent or guardian is the account admin","View-only access for under 18s"]},
+ {slug:"creative-crew",name:"The Creative Crew",who:"Service providers to the performing arts, such as sewers, costume designers, and lighting and sound technicians.",price:"$25 <small>/ month + GST</small>",note:"or $250 / year + GST",list:["Service profile to advertise your skills"]},
+ {slug:"producers",name:"The Producers",who:"Clubs, schools, studios and troupes managing a whole wardrobe, with unlimited listings and team access.",price:"$95 <small>/ month + GST</small>",note:"or $950 / year + GST",list:["30-day free trial","Unlimited listings","Invite up to 10 team members"]},
+ {slug:"company",name:"The Company",who:"Australian businesses that commercially support the performing arts, with a shop profile to sell to performers.",price:"$125 <small>/ month + GST</small>",note:"or $1,250 / year + GST",list:["Business profile with shop items"]}
 ];
 const TEAM=[
  {slug:"leanne-taylor",key:"leanne",name:"Leanne Taylor",tag:"The Stage Manager",role:"Founder & Executive Producer"},
@@ -916,14 +952,54 @@ function showTeam(slug){
   $("#otherTeam").innerHTML=TEAM.filter(x=>x.slug!==slug).map(x=>`<a href="#/team/${x.slug}">${x.name}</a>`).join("");
   window.scrollTo(0,0);
 }
+const MEM_DETAIL={
+ soloist:{intro:"The Soloist is for individual performers who look after their own costumes. Whether you dance, skate, sing, tumble or tread the boards, create your own Wardrobe and give your costumes their next time in the spotlight.",
+  fit:["You’re 18 or over and performing in your own right","You want to buy, sell or hire costumes for your own performances","You manage your own account, messages and payments"],
+  can:["Create your own Wardrobe and list up to 10 costumes at a time","List each costume either for sale or for hire","Browse every category and filter by size, price, location and more","Message owners and renters directly in the app","Pay securely, with hire deposits held through the platform","Like and follow your favourite owners and profiles"],
+  callout:{h:"Under 18?",p:"Join with your parent or guardian under The Ensemble Membership. They set up the account and look after messages and payments, and you can still browse, like and follow.",link:["ensemble","About The Ensemble"]},
+  know:["Free to join, with no monthly fee","A small platform fee applies to all transactions"]},
+ ensemble:{intro:"The Ensemble is for parents, guardians and families managing costumes for one or more performers. From first concerts to competition season, keep the whole family’s costumes in one Wardrobe while you stay in charge.",
+  fit:["You’re the parent or guardian of a performer under 18","You look after costumes for more than one performer in your family","You want messaging and payments to stay in your hands"],
+  howh:"How it works for families",
+  how:["The parent or guardian is the admin of the account","The parent or guardian handles all in-app messaging and payments","Performers under 18 have view-only access to browse costumes","Children can like and follow profiles, and these are shared to the parent admin profile so you can see what they love"],
+  can:["List up to 20 costumes, each either for sale or for hire","Buy and hire costumes for every performer in the family","Pay securely, with hire deposits held through the platform","Message owners and renters directly in the app"],
+  know:["Free to join, with no monthly fee","A small platform fee applies to all transactions"]},
+ "creative-crew":{intro:"The Creative Crew is for the people who make the magic happen behind the scenes. If you provide a service to the performing arts, create a profile and advertise your services to performers, families, clubs and schools right across Australia.",
+  fith:"It’s right for you if you offer a service, such as",
+  fit:["Sewing, dressmaking and alterations","Costume design and making","Lighting and sound","Props, sets and music editing","Other creative services for performers and productions"],
+  can:["Create a profile that shows your services, experience and location","Advertise your services and show off your work with photos","Be found by performers, families, clubs and schools who need your skills","Receive enquiries through in-app messaging"],
+  know:["$25 a month or $250 a year, plus GST","A small platform fee applies to all transactions"]},
+ producers:{intro:"The Producers is for clubs, schools, studios and troupes managing a whole wardrobe of costumes. Keep individual costumes, team sets, hires and returns in one place, with help from your team.",
+  fit:["You manage costumes for a club, school, studio or troupe","You have team sets or a large collection to list","You want a few helpers to share the work"],
+  can:["Unlimited listings, each either for sale or for hire","List individual costumes and full team sets","Manage private and public listings from one place","Message owners and renters directly in the app"],
+  howh:"Team access",
+  how:["The admin can invite up to 10 other members to help manage the Wardrobe","Each invited member must set up their own Costume Exchange account before they can support the admin Wardrobe","The admin stays in charge of the Wardrobe and its settings"],
+  soon:"A full wardrobe inventory management system is planned in future updates, to help you track every costume, size and hire in one place.",
+  know:["30-day free trial","Then $95 a month or $950 a year, plus GST","A small platform fee applies to all transactions"]},
+ company:{intro:"The Company is for Australian businesses that commercially support the performing arts. Set up your business profile with shop items and sell directly to performers, families, clubs and schools.",
+  fit:["You run an ABN-registered Australian business","You sell costumes, dancewear, props, accessories or other items for performers","You want a shop presence where performers are already looking"],
+  can:["Set up a business profile with your logo, details and location","Add shop items for performers to buy","Reach performers, families, clubs and schools across Australia","Answer customer questions through in-app messaging"],
+  know:["$125 a month or $1,250 a year, plus GST","A small platform fee applies to all transactions"]}
+};
+const MEM_GUIDE=[["I’m a performer aged 18 or over","soloist"],["I’m a parent or guardian, or my performer is under 18","ensemble"],["I offer a service like sewing, costume design, lighting or sound","creative-crew"],["I manage costumes for a club, school, studio or troupe","producers"],["I run an Australian business selling to performers","company"]];
+function guideHTML(cur){return MEM_GUIDE.map(([t,sl])=>{const m=MEMS.find(x=>x.slug===sl);return `<a class="g-row${sl===cur?" cur":""}" href="#/memberships/${sl}"><span>${t}</span><b>${m.name}${sl===cur?" <em>You’re here</em>":""} →</b></a>`}).join("")}
+const CHECK='<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+const ul=a=>`<ul class="ticks">${a.map(x=>`<li>${CHECK}<span>${x}</span></li>`).join("")}</ul>`;
+function memDetailHTML(slug){const d=MEM_DETAIL[slug];return `<p class="mem-intro">${d.intro}</p>${d.callout?`<div class="md-callout"><img src="brand/crown-mark.png" alt=""><div><h3>${d.callout.h}</h3><p>${d.callout.p}</p><a href="#/memberships/${d.callout.link[0]}">${d.callout.link[1]} →</a></div></div>`:""}
+<div class="md-grid"><div class="md-card"><h3>${d.fith||"It’s right for you if"}</h3>${ul(d.fit)}</div><div class="md-card"><h3>What you can do</h3>${ul(d.can)}</div>
+${d.how?`<div class="md-card"><h3>${d.howh}</h3>${ul(d.how)}</div>`:""}
+<div class="md-card"><h3>Good to know</h3>${ul(d.know)}${d.soon?`<p class="soon-note"><b>Coming in future updates</b>${d.soon}</p>`:""}</div></div>`}
+$("#homeGuide").innerHTML=guideHTML();
 function showMem(slug){
   const m=MEMS.find(x=>x.slug===slug); if(!m){showHome();return}
   document.body.classList.remove("cat-mode","team-mode","terms-mode","blog-mode"); document.body.classList.add("mem-mode");
   document.title=`${m.name} Membership | Costume Exchange`;
   $("#memCrumb").textContent=m.name; $("#memTitle").textContent=m.name; $("#memWho").textContent=m.who;
   $("#memPrice").innerHTML=m.price; $("#memNote").textContent=m.note;
-  $("#memList").innerHTML=[...m.list,"Buy, sell or hire for a small platform fee"].map(x=>`<li>${x}</li>`).join("");
+  $("#memList").innerHTML=[...m.list,"A small platform fee applies to all transactions"].map(x=>`<li>${x}</li>`).join("");
   $("#memHero").classList.toggle("feature",!!m.feature);
+  $("#memDetail").innerHTML=memDetailHTML(slug); $("#memGuide").innerHTML=guideHTML(slug);
+  $("#memCta").dataset.mem=m.name; $("#memEndCta").dataset.mem=m.name;
   $("#otherMems").innerHTML=MEMS.filter(x=>x.slug!==slug).map(x=>`<a href="#/memberships/${x.slug}">${x.name}</a>`).join("");
   window.scrollTo(0,0);
 }
@@ -1030,9 +1106,10 @@ $("#contactForm").addEventListener("submit",async e=>{
 
 // Waitlist: register interest popup, sent to HubSpot via the help form pipeline
 const wlm=$("#wlModal"),wlf=$("#wlForm");
-function wlShow(){wlf.hidden=false;$("#wlIntro").hidden=false;$("#wlTitle").hidden=false;$("#wlOk").hidden=true;$("#wlErr").textContent="";wlm.classList.add("on");setTimeout(()=>wlf.name.focus(),50)}
+function wlShow(mem){wlf.hidden=false;$("#wlIntro").hidden=false;$("#wlTitle").hidden=false;$("#wlOk").hidden=true;$("#wlErr").textContent="";if(typeof mem==="string")wlf.mem.value=mem;wlm.classList.add("on");setTimeout(()=>wlf.name.focus(),50)}
 function wlHide(){wlm.classList.remove("on")}
-$("#wlOpen").addEventListener("click",wlShow);
+$("#wlOpen").addEventListener("click",()=>wlShow(""));
+document.addEventListener("click",e=>{const t=e.target.closest("[data-wl]");if(t){e.preventDefault();wlShow(t.dataset.mem||"")}});
 $("#wlClose").addEventListener("click",wlHide);$("#wlDone").addEventListener("click",wlHide);
 wlm.addEventListener("click",e=>{if(e.target===wlm)wlHide()});
 document.addEventListener("keydown",e=>{if(e.key==="Escape")wlHide()});
@@ -1041,7 +1118,7 @@ wlf.addEventListener("submit",async e=>{
   if(!wlf.checkValidity()){wlf.reportValidity();return}
   const ints=[...wlf.querySelectorAll('[name="int"]:checked')].map(x=>x.value);
   const d={name:wlf.name.value.trim(),email:wlf.email.value.trim(),phone:wlf.phone.value.trim(),topic:"Waitlist",
-    message:`Waitlist registration. I am a: ${wlf.role.value}. State: ${wlf.state.value}. Interested in: ${ints.join(", ")||"Not specified"}. Consent to launch news and updates: Yes.`,
+    message:`Waitlist registration. Membership: ${wlf.mem.value||"Not sure yet"}. I am a: ${wlf.role.value}. State: ${wlf.state.value}. Interested in: ${ints.join(", ")||"Not specified"}. Consent to launch news and updates: Yes.`,
     website:wlf.website.value,page:location.href};
   btn.disabled=true;btn.textContent="Saving…";
   try{
