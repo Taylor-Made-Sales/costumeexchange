@@ -182,6 +182,7 @@ body.mem-mode #memView{display:block}
 .mem-facts ul{margin:14px 0 0;padding-left:18px;color:#5B5547}
 .mem-copy{margin-top:30px;border:1.5px dashed var(--gold-soft);border-radius:var(--radius);padding:24px 26px;background:#fff;color:var(--grey)}
 .mem-copy h3{color:var(--gold-deep);font-size:16px}
+.tm-bio{border-style:solid;border-color:var(--line)}.tm-bio p{margin:10px 0 0;line-height:1.65}
 .mem-detail{margin-top:34px}
 .md-card.why p{margin:0 0 10px;color:var(--grey);line-height:1.6}.md-card.why p:last-child{margin:0}
 .mem-intro{font-size:clamp(17px,1.6vw,19px);line-height:1.6;color:var(--charcoal);max-width:none;margin:0 0 22px}
@@ -748,7 +749,7 @@ label.chk input{width:18px;height:18px;padding:0;margin:2px 0 0;flex:none;accent
         <h1 id="tmName" style="font-size:clamp(30px,4.4vw,46px);margin-top:8px"></h1>
         <div class="role" id="tmRole" style="font-weight:700;color:var(--muted);margin-top:4px"></div>
         <p class="lead" id="tmIntro" style="margin-top:14px"></p>
-        <div class="mem-copy" style="margin-top:22px"><h3>About</h3><p style="margin:8px 0 0">A full bio is coming soon.</p></div>
+        <div class="mem-copy tm-bio" style="margin-top:22px"><h3>About</h3><div id="tmBio"></div></div>
         <div class="mem-copy" style="margin-top:14px"><h3>Contact</h3><p style="margin:8px 0 0">Contact details are coming soon. In the meantime, send us a message and we’ll pass it on.</p><div class="btns" style="margin-top:16px"><a class="btn primary" href="#contact" data-home>Send a Message</a></div></div>
       </div>
     </div>
@@ -942,11 +943,11 @@ const MEMS=[
  {slug:"company",name:"The Company",who:"Australian businesses that commercially support the performing arts, with a shop profile to sell to performers.",price:"$125 <small>/ month + GST</small>",note:"or $1,250 / year + GST",list:["Business profile with shop items"]}
 ];
 const TEAM=[
- {slug:"leanne-taylor",key:"leanne",name:"Leanne Taylor",tag:"The Stage Manager",role:"Founder & Executive Producer"},
- {slug:"ryan-zarb",key:"ryan",name:"Ryan Zarb",tag:"The Technical Director",role:"IT & Platform Support"},
- {slug:"alanna-kane",key:"alanna",name:"Alanna Kane",tag:"The Production Manager",role:"Finance & Operations"},
- {slug:"megan-thomas",key:"megan",name:"Megan Thomas",tag:"The Art Director",role:"Brand & Creative Design"},
- {slug:"phil-koolen",key:"phil",name:"Phil Koolen",tag:"The Publicity Director",role:"Marketing & Communications"}
+ {slug:"leanne-taylor",key:"leanne",bio:["Leanne’s love of performing began at just three years old in Geelong, where she grew up immersed in calisthenics, ballet, jazz, tap and musical theatre. Thousands of costumes, hundreds of dance shoes and more blisters than she cares to remember later, her passion for the performing arts has never faded.", "Today she has proudly swapped her dancing shoes for her Dance Mum crown, cheering on her daughter, who has been performing for 16 years.", "Leanne has seen firsthand the time, dedication and expense that go into every performance. She’s passionate about helping community clubs, families and performers make their craft more accessible and financially sustainable.", "After years in the technology industry, Leanne saw a chance to combine her professional experience with her lifelong love of performance. The result is Costume Exchange, Australia’s first marketplace dedicated to performance costumes.", "Her vision is simple: bring Australia’s performing community together, give beautiful creations another chance to shine, and help clubs, families and performers earn much-needed income to support what they love.", "Leanne invites you to take centre stage. List your new and pre-loved costumes and let them find their next budding performer.", "Because every costume deserves an encore."],name:"Leanne Taylor",tag:"The Stage Manager",role:"Founder & Executive Producer"},
+ {slug:"ryan-zarb",key:"ryan",bio:["Ryan is the technical brains backstage. He founded Zarbtech in 2017 after spotting a gap in technology support for Melbourne schools, and has grown it into an Australian ICT and AI services provider with offices in Victoria and South Australia.", "With more than 13 years as a strategic technology consultant, Ryan helps organisations modernise their IT, strengthen their cybersecurity and get the most from their technology budgets.", "At Costume Exchange, he makes sure the platform is secure, reliable and ready for opening night, so members can focus on the performance, not the tech."],name:"Ryan Zarb",tag:"The Technical Director",role:"IT & Platform Support"},
+ {slug:"alanna-kane",key:"alanna",bio:["Alanna is the steady hand behind the curtain. As Production Manager, she looks after the finances and day-to-day operations that keep Costume Exchange running smoothly.", "From budgets and Memberships to payments and the processes behind every listing, Alanna makes sure the numbers add up and everything happens on cue.", "Her focus is simple: build a marketplace that is sustainable, fair and trusted by every owner and renter who uses it."],name:"Alanna Kane",tag:"The Production Manager",role:"Finance & Operations"},
+ {slug:"megan-thomas",key:"megan",bio:["Megan is the creative eye behind the Costume Exchange look. From the gold crown to our cheeky campaigns, she shapes how the brand looks, sounds and feels wherever you meet it.", "She brings the sparkle to everything from the website and app design to social posts and launch campaigns, making sure every detail feels as polished as a costume under the lights.", "Megan’s goal is a brand that performers, families and clubs instantly recognise and love to share."],name:"Megan Thomas",tag:"The Art Director",role:"Brand & Creative Design"},
+ {slug:"phil-koolen",key:"phil",bio:["Phil is making some noise before opening night. As Publicity Director, he leads marketing and communications for Costume Exchange, sharing our story with performers, families, clubs, schools and businesses across Australia.", "From partnerships and media to social channels and community events, Phil gets the word out far and wide, so the right people hear about Costume Exchange at the right time.", "He’s passionate about building a community that celebrates reuse and gives every costume its second act."],name:"Phil Koolen",tag:"The Publicity Director",role:"Marketing & Communications"}
 ];
 function showTeam(slug){
   const t=TEAM.find(x=>x.slug===slug); if(!t){showHome();return}
@@ -955,6 +956,7 @@ function showTeam(slug){
   const card=document.querySelector(`#team a[href="#/team/${slug}"] p`);
   $("#tmCrumb").textContent=t.name; $("#tmName").textContent=t.name; $("#tmTag").textContent=t.tag; $("#tmRole").textContent=t.role;
   $("#tmIntro").textContent=card?card.textContent:"";
+  $("#tmBio").innerHTML=(t.bio||["A full bio is coming soon."]).map(x=>`<p>${x}</p>`).join("");
   $("#tmImg").src=`img/team/${t.key}.jpg`; $("#tmImg").alt=`${t.name}, ${t.tag}`;
   $("#otherTeam").innerHTML=TEAM.filter(x=>x.slug!==slug).map(x=>`<a href="#/team/${x.slug}">${x.name}</a>`).join("");
   window.scrollTo(0,0);
