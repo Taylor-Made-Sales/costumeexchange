@@ -833,7 +833,7 @@ const CATS=[
  {slug:"book-week",name:"Book Week",img:"CE_book_week",samples:[["Hermione Granger","Child 10","Pre-loved","For sale","$55","Individual","book-week-1","Black hooded wizard school robe with red lining, house crest, striped tie, grey cardigan and pleated skirt"],["Wonka, Croc and Paddington","Set of 3 · mixed sizes","Pre-loved","For hire","$75 / hire","Team","book-week-2","Trio set: purple Willy Wonka suit with green top hat and cane, green crocodile onesie, and blue duffle coat with red hat"],["Papa Smurf","Child 8","Pre-loved","For hire","$25 / hire","Individual","book-week-3","Blue top with white faux fur beard trim, red trousers and red hat"],["Dinosaur Roar","Child 6","New","For sale","$40","Individual","book-week-4","Green dinosaur onesie with scaly print and toothy hood"]],blurb:"A new chapter for a great costume. Find Book Week favourites without buying new."},
  {slug:"all",name:"All Categories",title:"All costumes",img:"CE_all",thumbs:["CE_ballet","CE_calisthenics","CE_ballroom","CE_book_week"],alt:"All categories: search every performance costume on Costume Exchange",blurb:"Search every costume on Costume Exchange in one place, from ballet and calisthenics to musical theatre and Book Week."}
 ];
-const ALL_PICKS=[["ballet",0],["calisthenics",2],["ballroom",1],["cheerleading",2],["ice-skating",1],["musical-theatre",3],["drag",2],["book-week",0]];
+const ALL_PICKS=[["ballet",0],["dance",2],["ballroom",1],["cheerleading",2],["ice-skating",1],["musical-theatre",3],["drag",2],["book-week",0]];
 {const a=CATS.find(c=>c.slug==="all");a.samples=ALL_PICKS.map(([sl,i])=>CATS.find(c=>c.slug===sl).samples[i]);a.picks=ALL_PICKS;}
 const SAMPLES=[
  ["Midnight Encore","Child 10","Pre-loved","For sale","$180","Individual"],
